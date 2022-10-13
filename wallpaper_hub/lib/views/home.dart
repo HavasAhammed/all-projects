@@ -71,7 +71,7 @@ class _HomeState extends State<Home> {
                   themeChange.darkTheme = !themeChange.darkTheme;
                 }, 
               icon: themeChange.darkTheme ? 
-              Icon(Icons.nights_stay) : 
+              Icon(Icons.bedtime) : 
               Icon(Icons.wb_sunny))
 
             // Switch(
@@ -103,7 +103,7 @@ class _HomeState extends State<Home> {
                     children: [
                       Expanded(
                         child: TextField(
-                          style: TextStyle(color: Colors.black),
+                          style: TextStyle(color: themeChange.darkTheme ? Colors.white : Colors.black),
                           controller: _searchController,
                           decoration: InputDecoration(
                             border: InputBorder.none,
@@ -121,7 +121,7 @@ class _HomeState extends State<Home> {
                                         searchQuery: _searchController.text,
                                       )));
                         },
-                        child: Container(child: Icon(Icons.search)),
+                        child: Container(child: Icon(Icons.search, color: themeChange.darkTheme? Colors.white60 : Colors.black54,)),
                       )
                     ],
                   ),

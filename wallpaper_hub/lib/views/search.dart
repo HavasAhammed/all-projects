@@ -10,7 +10,7 @@ import 'package:http/http.dart' as http;
 
 class Search extends StatefulWidget {
   
-  final String searchQuery;
+  final String searchQuery ;
   Search({required this.searchQuery});
 
 
@@ -63,8 +63,6 @@ class _SearchState extends State<Search> {
 
     return Scaffold(
       appBar: AppBar(
-        // iconTheme: IconThemeData(color: Colors.black),
-        // backgroundColor: Colors.white,
         title: brandName(context),
         actions: [
           SizedBox(width: 50,)
@@ -80,7 +78,7 @@ class _SearchState extends State<Search> {
                   decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(30),
                       // color: Color(0xfff5f8fd)
-                      color: themeChange.darkTheme ? Color.fromARGB(255, 28, 78, 73) :Color.fromARGB(255, 208, 214, 224) 
+                      color: themeChange.darkTheme ? Color.fromARGB(255, 29, 39, 38): Color.fromARGB(255, 208, 214, 224) 
                       ),
                       
                   padding: EdgeInsets.symmetric(horizontal: 24),
@@ -89,7 +87,8 @@ class _SearchState extends State<Search> {
                     children: [
                       Expanded(
                         child: TextField(
-                          style: TextStyle(color: Colors.black),
+                          style: 
+                          TextStyle(color: themeChange.darkTheme ? Colors.white : Colors.black),
                           controller: _searchController,
                           decoration: InputDecoration(
                               border: InputBorder.none,
@@ -102,7 +101,7 @@ class _SearchState extends State<Search> {
                         onTap: () {
                           getSearchWallpapers(_searchController.text);
                         },
-                        child: Container(child: Icon(Icons.search)),
+                        child: Container(child: Icon(Icons.search, color: themeChange.darkTheme ? Colors.white60 : Colors.black54,)),
                       )
                     ],
                   ),
